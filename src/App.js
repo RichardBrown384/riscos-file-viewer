@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import mapDrawFile from './mapper/mapper';
+import mapDrawFile from './mapper/draw';
 import DrawComponent from './components/DrawComponent';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         if (file) {
             try {
                 const buffer = Buffer.from(await file.arrayBuffer());
-                setDrawFile(mapDrawFile(buffer));
+                setDrawFile(mapDrawFile(new Uint8Array(buffer)));
             } catch (e) {
                 setDrawFile(null);
             }

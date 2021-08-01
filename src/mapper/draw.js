@@ -1,3 +1,5 @@
+import {Sprite} from "riscos-sprite";
+
 import {
     CAP_BUTT,
     CAP_ROUND,
@@ -13,8 +15,13 @@ import {
     TAG_END,
     TAG_MOVE,
     TYPE_PATH,
+    TYPE_SPRITE,
     WINDING_EVEN_ODD
 } from 'riscos-draw';
+import mapSprite from "./sprite";
+import mapRgbaImage from "./rgba-image";
+import {Base64} from "js-base64";
+
 
 const JOIN_MAP = {
     [JOIN_MITRE]: 'mitre',
@@ -100,14 +107,36 @@ function mapPathObject(pathObject) {
     };
 }
 
-function mapDrawFile(buffer) {
+function mapSpriteObject(boundingBox, spriteObject, array) {
+    const {minX, maxX, minY, maxY} = boundingBox;
+    const {
+        start,
+        end
+    } = spriteObject;
+    const slice = array.slice(start, end)
+    const sprite = Sprite.fromUint8Array(slice);
+    const rgbaImage = mapSprite(sprite);
+    const png = mapRgbaImage(rgbaImage);
+    const data = Base64.fromUint8Array(png);
+    return {
+        tag: 'image',
+        x: minX,
+        y: minY,
+        width: (maxX - minX),
+        height: (maxY - minY),
+        preserveAspectRatio: 'none',
+        xlinkHref: `data:image/png;base64,${data}`
+    }
+}
+
+function mapDrawFile(array) {
 
     const {
         header: {
             boundingBox: fileBoundingBox
         },
         objects
-    } = Draw.fromUint8Array(buffer);
+    } = Draw.fromUint8Array(array);
 
     function mergeBoundingBox(other) {
         if (!other) {
@@ -132,6 +161,10 @@ function mapDrawFile(buffer) {
         switch (type) {
             case TYPE_PATH: {
                 mappedObjects.push(mapPathObject(data));
+                break;
+            }
+            case TYPE_SPRITE: {
+                mappedObjects.push(mapSpriteObject(boundingBox, data, array));
                 break;
             }
             default:

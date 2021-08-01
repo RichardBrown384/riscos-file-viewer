@@ -4,10 +4,14 @@
   "private": true,
   "homepage": "http://richardbrown384.github.io/riscos-draw-react",
   "dependencies": {
+    "crc-32": "^1.2.0",
+    "js-base64": "^3.6.1",
+    "pako": "^2.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
-    "riscos-draw": "git+ssh://git@github.com/RichardBrown384/riscos-draw-js.git"
+    "riscos-draw": "git+ssh://git@github.com/RichardBrown384/riscos-draw-js.git",
+    "riscos-sprite": "git+ssh://git@github.com/RichardBrown384/riscos-sprite-js.git"
   },
   "scripts": {
     "start": "react-scripts start",
