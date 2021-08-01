@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import mapDrawFile from './mapper/mapper';
+import DrawComponent from './components/DrawComponent';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [drawFile, setDrawFile] = useState(null);
+    async function loadFile(event) {
+        const { target: { files = [] }} = event;
+        const [file,] = files;
+        if (file) {
+            try {
+                const buffer = Buffer.from(await file.arrayBuffer());
+                setDrawFile(mapDrawFile(buffer));
+            } catch (e) {
+                setDrawFile(null);
+            }
+        } else {
+            setDrawFile(null);
+        }
+    }
+    return (
+        <div>
+            <h1>RISC OS Draw Viewer</h1>
+            <input type="file" onChange={loadFile} />
+            <DrawComponent drawFile={drawFile} />
+        </div>
+    );
 }
 
 export default App;
