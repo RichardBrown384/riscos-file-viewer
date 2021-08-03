@@ -108,15 +108,16 @@ function mapSpriteObject(boundingBox, spriteObject, array) {
     const rgbaImage = mapSprite(sprite);
     const png = mapRgbaImage(rgbaImage);
     const data = Base64.fromUint8Array(png);
+    const translation = minY + maxY;
     return {
         tag: 'image',
         x: minX,
-        y: -maxY,
+        y: minY,
         width: (maxX - minX),
         height: (maxY - minY),
         preserveAspectRatio: 'none',
         xlinkHref: `data:image/png;base64,${data}`,
-        transform: 'scale(1,-1)'
+        transform: `translate(1, ${translation}) scale(1, -1)`
     }
 }
 
