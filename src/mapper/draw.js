@@ -1,4 +1,4 @@
-import {Sprite} from "riscos-sprite";
+import {Sprite} from 'riscos-sprite';
 
 import {
     CAP_BUTT,
@@ -22,6 +22,7 @@ import mapSprite from "./sprite";
 import mapRgbaImage from "./rgba-image";
 import {Base64} from "js-base64";
 
+const MIN_STROKE_WIDTH = 160;
 
 const JOIN_MAP = {
     [JOIN_MITRE]: 'mitre',
@@ -80,7 +81,7 @@ function mapPathObject(pathObject) {
     const {
         fillColour,
         outlineColour,
-        outlineWidth: strokeWidth,
+        outlineWidth,
         pathStyle: {
             join,
             capStart,
@@ -98,7 +99,7 @@ function mapPathObject(pathObject) {
         d: mapPathData(path),
         fill: mapColour(fillColour),
         stroke: mapColour(outlineColour),
-        strokeWidth,
+        strokeWidth: Math.max(MIN_STROKE_WIDTH, outlineWidth),
         ...(join !== JOIN_MITRE && {strokeLinejoin: JOIN_MAP[join]}),
         ...(capStart in [CAP_SQUARE, CAP_ROUND] && {strokeLinecap: CAP_MAP[capStart]}),
         ...(windingRule === WINDING_EVEN_ODD && {fillRule: 'evenodd'}),
