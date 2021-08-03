@@ -169,4 +169,3 @@ function mapDrawFile(array) {
 }
 
 export default mapDrawFile;
-
