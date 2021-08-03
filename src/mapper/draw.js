@@ -47,9 +47,9 @@ const CAP_MAP = {
 
 function mapPathData(elements) {
     const path = [];
-    for (const {tag, points} of elements) {
+    for (const {tag, points = []} of elements) {
         path.push(TAG_MAP[tag]);
-        path.push(points?.flatMap(({x, y}) => [x, y]));
+        path.push(points.flatMap(({x, y}) => [x, y]).join(' '));
     }
     return path.join(' ');
 }
