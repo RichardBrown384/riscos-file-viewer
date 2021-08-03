@@ -20,7 +20,7 @@ function DrawComponent({drawFile}) {
 
     return (
         <div>
-            <svg width={width} height={height} viewBox={`${viewBox}`}>
+            <svg width={width} height={height} viewBox={`${viewBox.join(' ')}`}>
                 <g transform='scale(1,-1)'>
                     {objects.map((path, index) => {
                         const {tag: Tag, ...objectData} = path;
