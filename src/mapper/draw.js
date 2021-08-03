@@ -111,11 +111,12 @@ function mapSpriteObject(boundingBox, spriteObject, array) {
     return {
         tag: 'image',
         x: minX,
-        y: minY,
+        y: -maxY,
         width: (maxX - minX),
         height: (maxY - minY),
         preserveAspectRatio: 'none',
-        xlinkHref: `data:image/png;base64,${data}`
+        xlinkHref: `data:image/png;base64,${data}`,
+        transform: 'scale(1,-1)'
     }
 }
 

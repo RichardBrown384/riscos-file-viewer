@@ -10,21 +10,18 @@ function DrawComponent({drawFile}) {
         objects
     } = drawFile;
 
-    const width = Math.max(maxX - minX, 1);
-    const height = Math.max(maxY - minY, 1);
+    const viewBoxWidth = Math.max(maxX - minX, 1);
+    const viewBoxHeight = Math.max(maxY - minY, 1);
 
-    const screenWidth = width * DRAW_UNITS_TO_USER_UNITS;
-    const screenHeight = height * DRAW_UNITS_TO_USER_UNITS;
+    const viewBox = [minX, -maxY, viewBoxWidth, viewBoxHeight];
 
-    const sx = screenWidth / width;
-    const sy = screenHeight / height;
-
-    const transform = [sx, 0, 0, -sy, -sx * minX, sy * maxY];
+    const width = viewBoxWidth * DRAW_UNITS_TO_USER_UNITS;
+    const height = viewBoxHeight * DRAW_UNITS_TO_USER_UNITS;
 
     return (
         <div>
-            <svg width={screenWidth} height={screenHeight}>
-                <g transform={`matrix(${transform})`}>
+            <svg width={width} height={height} viewBox={`${viewBox}`}>
+                <g transform='scale(1,-1)'>
                     {objects.map((path, index) => {
                         const {tag: Tag, ...objectData} = path;
                         return <Tag {...objectData} key={index}/>
