@@ -25,6 +25,8 @@ import {Base64} from "js-base64";
 
 const DRAW_UNITS_PER_INCH = 180 * 256;
 
+const FIXED_POINT_CONVERSION_FACTOR = 65536.0;
+
 const MIN_STROKE_WIDTH = 160;
 
 const TAG_MAP = {
@@ -50,7 +52,7 @@ const CAP_MAP = {
 
 function mapTransform(transform) {
     return [
-        ...transform.slice(0, 4).map(x => x / 65536.0),
+        ...transform.slice(0, 4).map(x => x / FIXED_POINT_CONVERSION_FACTOR),
         ...transform.slice(4)
     ];
 }
@@ -107,13 +109,19 @@ function mapPathObject(pathObject) {
     };
 }
 
-function mapImageData(sprite) {
+function mapSpriteObject(boundingBox, spriteObject, array) {
+    const {
+        start,
+        end
+    } = spriteObject;
+    const slice = array.slice(start, end)
+    const sprite = Sprite.fromUint8Array(slice);
+    const {minX, maxX, minY, maxY} = boundingBox;
+    const width = maxX - minX;
+    const height = maxY - minY;
     const rgbaImage = mapSprite(sprite);
     const png = mapRgbaImage(rgbaImage);
-    return Base64.fromUint8Array(png);
-}
-
-function mapImage({width, height, transform, data}) {
+    const data = Base64.fromUint8Array(png);
     return {
         tag: 'image',
         x: 0,
@@ -122,29 +130,13 @@ function mapImage({width, height, transform, data}) {
         height,
         preserveAspectRatio: 'none',
         xlinkHref: `data:image/png;base64,${data}`,
-        transform: `matrix(${transform}) translate(0, ${height}) scale(1, -1)`
-    }
-}
-
-function mapSpriteObject(boundingBox, spriteObject, array) {
-    const {
-        start,
-        end
-    } = spriteObject;
-    const {minX, maxX, minY, maxY} = boundingBox;
-    const slice = array.slice(start, end)
-    const sprite = Sprite.fromUint8Array(slice);
-    return mapImage({
-        width: maxX - minX,
-        height: maxY - minY,
-        transform: [1, 0, 0, 1, minX, minY],
-        data: mapImageData(sprite)
-    });
+        transform: `translate(${minX}, ${maxY}) scale(1, -1)`
+    };
 }
 
 function mapSpriteRotatedObject(spriteObject, array) {
     const {
-        transform,
+        transform: drawTransform,
         start,
         end
     } = spriteObject;
@@ -158,12 +150,20 @@ function mapSpriteRotatedObject(spriteObject, array) {
     } = sprite;
     const width = pixelWidth * DRAW_UNITS_PER_INCH / xDpi;
     const height = pixelHeight * DRAW_UNITS_PER_INCH / yDpi
-    return mapImage({
+    const rgbaImage = mapSprite(sprite);
+    const png = mapRgbaImage(rgbaImage);
+    const data = Base64.fromUint8Array(png);
+    const transform = mapTransform(drawTransform);
+    return {
+        tag: 'image',
+        x: 0,
+        y: 0,
         width,
         height,
-        transform: mapTransform(transform),
-        data: mapImageData(sprite)
-    });
+        preserveAspectRatio: 'none',
+        xlinkHref: `data:image/png;base64,${data}`,
+        transform: `matrix(${transform}) translate(0, ${height}) scale(1, -1)`
+    };
 }
 
 function mapDrawFile(array) {
