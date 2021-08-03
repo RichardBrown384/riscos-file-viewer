@@ -24,6 +24,14 @@ import {Base64} from "js-base64";
 
 const MIN_STROKE_WIDTH = 160;
 
+const TAG_MAP = {
+    [TAG_END]: '',
+    [TAG_MOVE]: 'M',
+    [TAG_CLOSE_SUB_PATH]: 'Z',
+    [TAG_BEZIER]: 'C',
+    [TAG_DRAW]: 'L'
+};
+
 const JOIN_MAP = {
     [JOIN_MITRE]: 'mitre',
     [JOIN_ROUND]: 'round',
@@ -40,27 +48,8 @@ const CAP_MAP = {
 function mapPathData(elements) {
     const path = [];
     for (const {tag, points} of elements) {
-        if (tag === TAG_END) {
-        } else if (tag === TAG_MOVE) {
-            const [
-                {x, y}
-            ] = points;
-            path.push(`M ${x} ${y}`);
-        } else if (tag === TAG_CLOSE_SUB_PATH) {
-            path.push('Z');
-        } else if (tag === TAG_BEZIER) {
-            const [
-                {x: x1, y: y1},
-                {x: x2, y: y2},
-                {x: x3, y: y3}
-            ] = points;
-            path.push(`C ${x1} ${y1} ${x2} ${y2} ${x3} ${y3}`);
-        } else if (tag === TAG_DRAW) {
-            const [
-                {x, y}
-            ] = points;
-            path.push(`L ${x} ${y}`);
-        }
+        path.push(TAG_MAP[tag]);
+        path.push(points?.flatMap(({x, y}) => [x, y]));
     }
     return path.join(' ');
 }
