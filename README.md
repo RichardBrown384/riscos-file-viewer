@@ -3,7 +3,7 @@
 React based viewer for RISC OS !Draw files.
 
 Uses [RISC OS Draw JS][riscos-draw-js] and [RISC OS Sprite JS][riscos-sprite-js] to load
-data from draw files.
+data from Draw files.
 
 Hosted using Github pages for demonstration purposes [here][github-pages].
 
