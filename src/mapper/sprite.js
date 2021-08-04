@@ -1,11 +1,20 @@
+function selectPalette(sprite) {
+    const {
+        bitsPerPixel,
+        palette = [],
+        wimpPalette
+    } = sprite;
+    return (palette.length === (1 << bitsPerPixel)) ? palette : wimpPalette;
+}
+
 function mapSprite(sprite) {
     const {
         pixelWidth: width,
         pixelHeight: height,
         image,
         mask = [],
-        palette
     } = sprite;
+    const palette = selectPalette(sprite);
     const pixels = [];
     for (let n = 0; n < image.length; n++) {
         const {first: bgr_} = palette[image[n]];
