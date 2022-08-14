@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import SVGComponent from './SVGComponent';
 
 function DrawComponent({ array }) {
-  if (!array) {
-    return <div />;
+  if (!(array && Draw.isHeaderPresent(array))) {
+    return null;
   }
   const draw = Draw.fromUint8Array(array);
   const element = Draw.SVGElement.fromDraw(draw, array);

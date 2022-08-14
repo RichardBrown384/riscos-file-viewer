@@ -8,6 +8,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-error-boundary": "^3.1.4",
     "react-scripts": "^5.0.1",
     "riscos-file-formats": "github:RichardBrown384/riscos-file-formats-js"
   },

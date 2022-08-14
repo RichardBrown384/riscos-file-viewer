@@ -1,10 +1,14 @@
 # riscos-draw-react
 
-React based viewer for RISC OS !Draw files.
+## About
 
-Uses [RISC OS File Formats][riscos-file-formats-js] to load data from !Draw files.
+React based viewer for RISC OS files.
+
+Uses [RISC OS File Formats][riscos-file-formats-js] to load data from RISC OS files.
 
 Hosted using GitHub pages for demonstration purposes [here][host].
+
+## Draw support
 
 ### Supported features
 
@@ -16,6 +20,17 @@ Hosted using GitHub pages for demonstration purposes [here][host].
 
 1. Text objects
 2. JPEG objects
+
+## Font support
+
+### Supported features
+
+1. Rendering of Outline files in a grid
+
+### Unsupported features
+
+1. Bitmap fonts
+2. Metrics
 
 ## Project status
 
