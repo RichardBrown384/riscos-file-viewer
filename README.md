@@ -1,4 +1,4 @@
-# riscos-draw-react
+# riscos-file-viewer
 
 ## About
 
@@ -38,4 +38,4 @@ Project is offered as-is and as a tool for making further observations and impro
 
 ---
 [riscos-file-formats-js]: https://github.com/RichardBrown384/riscos-file-formats-js
-[host]: http://richardbrown384.github.io/riscos-draw-react
+[host]: http://richardbrown384.github.io/riscos-file-viewer

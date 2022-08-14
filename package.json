@@ -1,8 +1,8 @@
 {
-  "name": "riscos-draw-react",
+  "name": "riscos-file-viewer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://richardbrown384.github.io/riscos-draw-react",
+  "homepage": "https://richardbrown384.github.io/riscos-file-viewer",
   "dependencies": {
     "buffer": "^6.0.3",
     "prop-types": "^15.8.1",
