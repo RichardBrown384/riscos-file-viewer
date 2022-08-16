@@ -4,7 +4,7 @@
 
 React based viewer for RISC OS files.
 
-Uses [RISC OS File Formats][riscos-file-formats-js] and [RISCOS ArtWorks][riscos-artworks-js]to load data from RISC OS files.
+Uses [RISC OS File Formats][riscos-file-formats-js] and [RISC OS ArtWorks][riscos-artworks-js]to load data from RISC OS files.
 
 Hosted using GitHub pages for demonstration purposes [here][host].
 
