@@ -18,6 +18,9 @@ const ATTRIBUTE_MAP_BY_TAG = {
   image: {
     'xlink:href': 'xlinkHref',
   },
+  stop: {
+    'stop-color': 'stopColor',
+  },
 };
 
 function mapAttributeName(tag, attribute) {
@@ -60,9 +63,11 @@ function mapElement({
 
 function SVGComponent({ element }) {
   if (!element) {
-    return <div />;
+    return null;
   }
-  return mapElement(element);
+  return (
+    <div>{mapElement(element)}</div>
+  );
 }
 
 SVGComponent.propTypes = {
