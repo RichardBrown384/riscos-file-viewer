@@ -23,7 +23,9 @@ function nameFillColour({ fillType }) {
 }
 
 const NAME_FUNCTIONS_BY_TYPE = {
+  [Constants.RECORD_01_TEXT]: () => 'Text',
   [Constants.RECORD_02_PATH]: () => 'Path (2)',
+  [Constants.RECORD_05_SPRITE]: () => 'Sprite',
   [Constants.RECORD_06_GROUP]: () => 'Group',
   [Constants.RECORD_0A_LAYER]: () => 'Layer',
   [Constants.RECORD_24_STROKE_COLOUR]: nameStrokeColour,
