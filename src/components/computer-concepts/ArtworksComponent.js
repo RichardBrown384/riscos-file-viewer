@@ -2,7 +2,7 @@ import React from 'react';
 import { Artworks } from 'riscos-artworks';
 import PropTypes from 'prop-types';
 import { JSONTree } from 'react-json-tree';
-import SVGComponent from './SVGComponent';
+import SVGComponent from '../common/SVGComponent';
 import ArtworksD3TreeComponent from './ArtworksTreeComponent';
 
 function DrawComponent({ array }) {

@@ -19,7 +19,8 @@ Hosted using GitHub pages for demonstration purposes [here][host].
 ### Unsupported features
 
 1. Text objects
-2. JPEG objects
+2. Text areas
+3. JPEG objects
 
 ## Font support
 
@@ -31,6 +32,16 @@ Hosted using GitHub pages for demonstration purposes [here][host].
 
 1. Bitmap fonts
 2. Metrics
+
+## Sprites
+
+### Supported features
+
+1. Supports sprites for most of the older screen modes
+
+### Unsupported features
+
+1. Newer sprites with more than 256 colours
 
 ## ArtWorks support
 

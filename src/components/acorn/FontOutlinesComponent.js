@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontOutlines } from 'riscos-file-formats';
 import PropTypes from 'prop-types';
-import SVGComponent from './SVGComponent';
+import SVGComponent from '../common/SVGComponent';
 
 function FontOutlinesComponent({ array }) {
   if (!(array && FontOutlines.isHeaderPresent(array))) {
