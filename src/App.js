@@ -26,7 +26,7 @@ function App() {
   return (
     <div>
       <h1>RISC OS File Viewer</h1>
-      <p>Can be used to view !Draw, Font Outline, and ArtWorks (experimental!) files.</p>
+      <p>Can be used to view !Draw, !Sprite, Font Outline, and ArtWorks (experimental!) files.</p>
       <ErrorBoundary
         FallbackComponent={ViewerFallbackComponent}
         onReset={() => setArray(null)}
