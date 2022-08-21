@@ -14,6 +14,7 @@ const ATTRIBUTE_MAP_BY_TAG = {
     'fill-rule': 'fillRule',
     'stroke-dashoffset': 'strokeDashoffset',
     'stroke-dasharray': 'strokeDasharray',
+    'vector-effect': 'vectorEffect',
   },
   image: {
     'xlink:href': 'xlinkHref',
