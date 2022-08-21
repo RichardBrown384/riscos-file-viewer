@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Buffer } from 'buffer';
 import { ErrorBoundary } from 'react-error-boundary';
-import DrawComponent from './components/DrawComponent';
-import FontOutlinesComponent from './components/FontOutlinesComponent';
-import ViewerFallbackComponent from './components/ViewerFallbackComponent';
-import ArtworksComponent from './components/ArtworksComponent';
+import DrawComponent from './components/acorn/DrawComponent';
+import FontOutlinesComponent from './components/acorn/FontOutlinesComponent';
+import ViewerFallbackComponent from './components/common/ViewerFallbackComponent';
+import ArtworksComponent from './components/computer-concepts/ArtworksComponent';
+import SpriteComponent from './components/acorn/SpriteComponent';
 
 function App() {
   const [array, setArray] = useState(null);
@@ -33,6 +34,7 @@ function App() {
         <input type="file" onChange={loadFile} />
         <DrawComponent array={array} />
         <FontOutlinesComponent array={array} />
+        <SpriteComponent array={array} />
         <ArtworksComponent array={array} />
       </ErrorBoundary>
     </div>

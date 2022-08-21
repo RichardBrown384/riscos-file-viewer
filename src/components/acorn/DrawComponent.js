@@ -1,7 +1,7 @@
 import React from 'react';
 import { Draw } from 'riscos-file-formats';
 import PropTypes from 'prop-types';
-import SVGComponent from './SVGComponent';
+import SVGComponent from '../common/SVGComponent';
 
 function DrawComponent({ array }) {
   if (!(array && Draw.isHeaderPresent(array))) {
