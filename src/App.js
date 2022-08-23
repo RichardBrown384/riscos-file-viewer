@@ -4,7 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import DrawComponent from './components/acorn/DrawComponent';
 import FontOutlinesComponent from './components/acorn/FontOutlinesComponent';
 import ViewerFallbackComponent from './components/common/ViewerFallbackComponent';
-import ArtworksComponent from './components/computer-concepts/ArtworksComponent';
+import ArtWorksComponent from './components/computer-concepts/ArtWorksComponent';
 import SpriteComponent from './components/acorn/SpriteComponent';
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
         <DrawComponent array={array} />
         <FontOutlinesComponent array={array} />
         <SpriteComponent array={array} />
-        <ArtworksComponent array={array} />
+        <ArtWorksComponent array={array} />
       </ErrorBoundary>
     </div>
   );
