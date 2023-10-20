@@ -5,13 +5,12 @@
   "homepage": "https://richardbrown384.github.io/riscos-file-viewer",
   "dependencies": {
     "buffer": "^6.0.3",
-    "d3": "^7.6.1",
+    "d3": "^7.8.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-error-boundary": "^3.1.4",
-    "react-json-tree": "^0.17.0",
-    "react-scripts": "^5.0.1",
+    "react-error-boundary": "^4.0.11",
+    "react-json-tree": "^0.18.0",
     "riscos-artworks": "github:RichardBrown384/riscos-artworks-js",
     "riscos-file-formats": "github:RichardBrown384/riscos-file-formats-js"
   },
@@ -42,12 +41,13 @@
     ]
   },
   "devDependencies": {
-    "eslint": "^8.22.0",
+    "react-scripts": "^5.0.1",
+    "eslint": "^8.51.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "gh-pages": "^4.0.0"
+    "gh-pages": "^6.0.0"
   }
 }
