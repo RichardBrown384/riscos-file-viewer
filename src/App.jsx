@@ -23,6 +23,8 @@ function App() {
       setArray(null);
     }
   }
+  const searchParams = new URLSearchParams(document.location.search);
+  const debug = searchParams.get('d') === '1';
   return (
     <div>
       <h1>RISC OS File Viewer</h1>
@@ -35,7 +37,7 @@ function App() {
         <DrawComponent array={array} />
         <FontOutlinesComponent array={array} />
         <SpriteComponent array={array} />
-        <ArtWorksComponent array={array} />
+        <ArtWorksComponent array={array} debug={debug} />
       </ErrorBoundary>
     </div>
   );
