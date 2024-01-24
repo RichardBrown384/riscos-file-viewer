@@ -2,25 +2,37 @@
   "name": "riscos-file-viewer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://richardbrown384.github.io/riscos-file-viewer",
+  "type": "module",
   "dependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
     "buffer": "^6.0.3",
     "d3": "^7.8.5",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-error-boundary": "^4.0.11",
+    "react-error-boundary": "^4.0.12",
     "react-json-tree": "^0.18.0",
     "riscos-artworks": "github:RichardBrown384/riscos-artworks-js",
     "riscos-file-formats": "github:RichardBrown384/riscos-file-formats-js"
   },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "gh-pages": "^6.1.1"
+  },
   "scripts": {
-    "lint": "npx eslint src",
-    "lint:fix": "npx eslint src --fix",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "lint": "npx eslint src vite.config.js",
+    "lint:fix": "npx eslint src vite.config.js --fix",
+    "start": "vite",
+    "build": "vite build",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "dev": "vite"
   },
   "eslintConfig": {
     "extends": [
@@ -39,15 +51,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-scripts": "^5.0.1",
-    "eslint": "^8.51.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "gh-pages": "^6.0.0"
   }
 }
