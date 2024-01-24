@@ -11,7 +11,7 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-error-boundary": "^4.0.11",
+    "react-error-boundary": "^4.0.12",
     "react-json-tree": "^0.18.0",
     "riscos-artworks": "github:RichardBrown384/riscos-artworks-js",
     "riscos-file-formats": "github:RichardBrown384/riscos-file-formats-js"
