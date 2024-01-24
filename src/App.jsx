@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Buffer } from 'buffer';
 import { ErrorBoundary } from 'react-error-boundary';
-import { useSearchParams } from 'react-router-dom';
 import DrawComponent from './components/acorn/DrawComponent';
 import FontOutlinesComponent from './components/acorn/FontOutlinesComponent';
 import ViewerFallbackComponent from './components/common/ViewerFallbackComponent';
@@ -24,8 +23,6 @@ function App() {
       setArray(null);
     }
   }
-  const [searchParams] = useSearchParams();
-  const debug = searchParams.get('d') === '1';
   return (
     <div>
       <h1>RISC OS File Viewer</h1>
@@ -38,7 +35,7 @@ function App() {
         <DrawComponent array={array} />
         <FontOutlinesComponent array={array} />
         <SpriteComponent array={array} />
-        <ArtWorksComponent array={array} debug={debug} />
+        <ArtWorksComponent array={array} />
       </ErrorBoundary>
     </div>
   );

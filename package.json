@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "vite": "^5.0.0",
     "@vitejs/plugin-react": "^4.2.0",
     "buffer": "^6.0.3",
     "d3": "^7.8.5",
@@ -12,10 +13,8 @@
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.12",
     "react-json-tree": "^0.18.0",
-    "react-router-dom": "^6.21.3",
     "riscos-artworks": "github:RichardBrown384/riscos-artworks-js",
-    "riscos-file-formats": "github:RichardBrown384/riscos-file-formats-js",
-    "vite": "^5.0.0"
+    "riscos-file-formats": "github:RichardBrown384/riscos-file-formats-js"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
@@ -27,8 +26,8 @@
     "gh-pages": "^6.1.1"
   },
   "scripts": {
-    "lint": "eslint --ext .js --ext .jsx src vite.config.js",
-    "lint:fix": "eslint --ext .js --ext .jsx src vite.config.js --fix",
+    "lint": "npx eslint src vite.config.js",
+    "lint:fix": "npx eslint src vite.config.js --fix",
     "start": "vite",
     "build": "vite build",
     "eject": "react-scripts eject",
