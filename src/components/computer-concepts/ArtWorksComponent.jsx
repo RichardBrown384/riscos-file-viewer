@@ -5,21 +5,21 @@ import { JSONTree } from 'react-json-tree';
 import SVGComponent from '../common/SVGComponent';
 import ArtworksD3TreeComponent from './ArtWorksTreeComponent';
 
-function ArtWorksComponent({ array }) {
+function ArtWorksComponent({ array, debug }) {
   if (!(array && Artworks.isHeaderPresent(array))) {
     return null;
   }
   const artworks = Artworks.fromUint8Array(array);
-  const outline = Artworks.SVGElement.Outline.fromArtworks(artworks);
   const normal = Artworks.SVGElement.Normal.fromArtworks(artworks);
+  const outline = Artworks.SVGElement.Outline.fromArtworks(artworks);
   const denormalised = Artworks.denormalise(artworks);
   return (
     <div>
-      <SVGComponent element={outline} />
       <SVGComponent element={normal} />
-      <JSONTree data={artworks} />
-      <ArtworksD3TreeComponent data={artworks.records} />
-      <ArtworksD3TreeComponent data={denormalised.records} />
+      {debug && <SVGComponent element={outline} />}
+      {debug && <JSONTree data={artworks} />}
+      {debug && <ArtworksD3TreeComponent data={artworks.records} />}
+      {debug && <ArtworksD3TreeComponent data={denormalised.records} />}
     </div>
   );
 }
@@ -27,6 +27,11 @@ function ArtWorksComponent({ array }) {
 ArtWorksComponent.propTypes = {
   // eslint-disable-next-line react/require-default-props
   array: PropTypes.instanceOf(Uint8Array),
+  debug: PropTypes.bool,
+};
+
+ArtWorksComponent.defaultProps = {
+  debug: false,
 };
 
 export default ArtWorksComponent;
