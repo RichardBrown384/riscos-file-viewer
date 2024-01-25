@@ -4,7 +4,6 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@vitejs/plugin-react": "^4.2.0",
     "buffer": "^6.0.3",
     "d3": "^7.8.5",
     "prop-types": "^15.8.1",
@@ -13,10 +12,11 @@
     "react-error-boundary": "^4.0.12",
     "react-json-tree": "^0.18.0",
     "riscos-artworks": "github:RichardBrown384/riscos-artworks-js",
-    "riscos-file-formats": "github:RichardBrown384/riscos-file-formats-js",
-    "vite": "^5.0.0"
+    "riscos-file-formats": "github:RichardBrown384/riscos-file-formats-js"
   },
   "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "vite": "^5.0.0",
     "eslint": "^8.56.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.29.1",
@@ -26,12 +26,11 @@
     "gh-pages": "^6.1.1"
   },
   "scripts": {
-    "lint": "eslint --ext .js --ext .jsx src vite.config.js",
-    "lint:fix": "eslint --ext .js --ext .jsx src vite.config.js --fix",
-    "start": "vite",
+    "lint": "eslint src vite.config.js --ext js,jsx",
+    "lint:fix": "eslint src vite.config.js --ext js,jsx --fix",
     "dev": "vite",
-    "build": "vite build",
     "preview": "vite preview",
+    "build": "vite build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
