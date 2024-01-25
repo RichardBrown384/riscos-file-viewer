@@ -25,6 +25,9 @@
     "gh-pages": "^6.1.1",
     "vite": "^5.0.0"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+  },
   "scripts": {
     "lint": "eslint src vite.config.js --ext js,jsx",
     "lint:fix": "eslint src vite.config.js --ext js,jsx --fix",
