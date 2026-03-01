@@ -1,5 +1,3 @@
-/* eslint-disable no-bitwise */
-
 import { Artworks } from 'riscos-artworks';
 
 const { Constants } = Artworks;

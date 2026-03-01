@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -72,7 +70,6 @@ function SVGComponent({ element }) {
 }
 
 SVGComponent.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   element: PropTypes.object.isRequired,
 };
 

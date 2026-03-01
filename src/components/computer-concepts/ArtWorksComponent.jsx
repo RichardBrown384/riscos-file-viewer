@@ -25,7 +25,6 @@ function ArtWorksComponent({ array, debug }) {
 }
 
 ArtWorksComponent.propTypes = {
-  // eslint-disable-next-line react/require-default-props
   array: PropTypes.instanceOf(Uint8Array),
   debug: PropTypes.bool,
 };
