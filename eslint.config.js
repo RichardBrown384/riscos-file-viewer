@@ -20,6 +20,11 @@ export default [
             globals: {
                 window: true,
                 document: true,
+                URLSearchParams: 'readonly',
+                Blob: 'readonly',
+                URL: 'readonly',
+                FileReader: 'readonly',
+                File: 'readonly',
             },
         },
         plugins: {
