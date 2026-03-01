@@ -50,7 +50,6 @@ function SpriteComponent({ array }) {
 }
 
 SpriteComponent.propTypes = {
-  // eslint-disable-next-line react/require-default-props
   array: PropTypes.instanceOf(Uint8Array),
 };
 
