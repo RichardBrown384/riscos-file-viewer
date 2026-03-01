@@ -17,6 +17,7 @@ function App() {
         const buffer = Buffer.from(await file.arrayBuffer());
         setArray(Uint8Array.from(buffer));
       } catch (e) {
+        void e;
         setArray(null);
       }
     } else {
