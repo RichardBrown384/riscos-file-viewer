@@ -15,15 +15,15 @@
     "riscos-file-formats": "git+https://git@github.com/RichardBrown384/riscos-file-formats-js.git"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.3",
-    "@vitejs/plugin-react": "^6.0.1",
-    "eslint": "9.39.3",
+    "@eslint/js": "^9.39.5",
+    "@vitejs/plugin-react": "^6.1.0",
+    "eslint": "^9.39.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "gh-pages": "^6.3.0",
-    "vite": "8.1.2"
+    "vite": "^8.2.2"
   },
   "scripts": {
     "lint": "eslint src vite.config.js --ext js,jsx",
